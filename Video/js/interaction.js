@@ -14,6 +14,7 @@ video1.onplay = function() {
 }
 
 video1.onpause = function() {
+    // showModal('new text for the modal!')
 }
 
 video1.onended = function(){
@@ -35,18 +36,32 @@ function toggleVideo() {
     }
 }
 
+//seeking
+video1.onseeked = function () {
+}
+
+//time update
+
+video1.ontimeupdate = function() {
+    console.log('Time is updated', Math.round(video1.currentTime))
+}
+
 //page loaded
 function pageLoaded() {
 }
 
-function showModal() {
+function showModal(e) {
+    document.getElementById('modalText').innerHTML = e;
     $('#modal1').modal('show');
 }
 
 $(document).on('show.bs.modal','#modal1',function () {
-
+    video1.pause();
+    document.getElementById('play_pause').src='media/play.png';
 });
 
 $(document).on('hide.bs.modal','#modal1',function(){
+    video1.play();
+    document.getElementById('play_pause').src='media/pause.png';
 
 });
