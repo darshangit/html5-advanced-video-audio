@@ -2,8 +2,18 @@
 var video1 = document.getElementById('video1');
 var initialPlay = false;
 var menuIn = true;
+var showQuestion = false
+
+//Time Variables
+var currentTime = 0;
+var halfWayPoint;
+var durationPoint;
+
 //video load
-video1.onloadedmetadata = function() {};
+video1.onloadedmetadata = function() {
+  durationPoint = Math.round(video1.duration);
+  halfWayPoint = Math.round(durationPoint/2);
+};
 
 video1.onplay = function() {
   if (!initialPlay) {
@@ -77,7 +87,19 @@ function loadVideo(e){
 }
 //time update
 video1.ontimeupdate = function() {
-  console.log('Time is updated', Math.round(video1.currentTime));
+  currentTime = Math.round(video1.currentTime);
+
+
+  if(currentTime == 5){
+    if(!showQuestion){
+      showQuestion = true;
+      $('#modal1').modal('show');
+    }
+  }
+
+  if(currentTime == halfWayPoint){
+    alert('Halfwaypoint')
+  }
 };
 
 //page loaded
@@ -90,10 +112,10 @@ function showModal(e) {
 
 $(document).on('show.bs.modal', '#modal1', function() {
   video1.pause();
-  document.getElementById('play_pause').src = 'media/play.png';
+  // document.getElementById('play_pause').src = 'media/play.png';
 });
 
 $(document).on('hide.bs.modal', '#modal1', function() {
   video1.play();
-  document.getElementById('play_pause').src = 'media/pause.png';
+  // document.getElementById('play_pause').src = 'media/pause.png';
 });
