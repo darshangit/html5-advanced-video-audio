@@ -92,3 +92,23 @@ video{
 	color: #fff;
 	padding: 25px 10px;
 }
+
+.hotspot{
+	position: absolute;
+	background-color: rgba(36,110,211,.5);
+	cursor: pointer;
+}
+
+#hotspot1{
+	width: 100px;
+	height: 160px;
+	top: 100px;
+	left: 250px;
+}
+
+/*Animation*/
+
+#first, #second, #third{
+	opacity: 0;
+}
+

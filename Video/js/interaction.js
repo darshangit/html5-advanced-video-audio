@@ -1,5 +1,6 @@
 //variable
 var video1 = document.getElementById('video1');
+var hotspot1 = document.getElementById('hotspot1')
 var initialPlay = false;
 var menuIn = true;
 var showQuestion = false
@@ -90,17 +91,47 @@ video1.ontimeupdate = function() {
   currentTime = Math.round(video1.currentTime);
 
 
-  if(currentTime == 5){
-    if(!showQuestion){
-      showQuestion = true;
-      $('#modal1').modal('show');
-    }
+  // if(currentTime == 5){
+  //   if(!showQuestion){
+  //     showQuestion = true;
+  //     $('#modal1').modal('show');
+  //   }
+  // }
+
+  // if(currentTime == halfWayPoint){
+  //   alert('Halfwaypoint')
+  // }
+
+  // if(currentTime >= 0 && currentTime <=3){
+  //   hotspot1.style.display = 'none';
+  // }else if(currentTime >=4 && currentTime<=10){
+  //   hotspot1.style.display = 'block';
+  // }
+
+  if(currentTime == 3){
+    document.getElementById('first').classList.add('animated');
+    document.getElementById('first').classList.add('fadeInRight');
   }
 
-  if(currentTime == halfWayPoint){
-    alert('Halfwaypoint')
+  if(currentTime <2){
+    document.getElementById('first').classList.remove('animated');
+    document.getElementById('first').classList.remove('fadeInRight');
+  }
+
+  if(currentTime == 10){
+    document.getElementById('second').classList.add('animated');
+    document.getElementById('second').classList.add('fadeInRight');
+  }
+
+  if(currentTime == 20){
+    document.getElementById('third').classList.add('animated');
+    document.getElementById('third').classList.add('fadeInRight');
   }
 };
+
+function showHotSpot() {
+  $('#modal1').modal('show');
+}
 
 //page loaded
 function pageLoaded() {}
