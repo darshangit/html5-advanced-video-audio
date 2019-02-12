@@ -16,8 +16,11 @@
       <!--Video js css-->
       <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet" />
 
+      <link rel="stylesheet" href="css/videojs.markers.min.css">
       <!-- Custom CSS -->
       <link rel="stylesheet" type="text/css" href="css/interaction.css" />
+      <link rel="stylesheet" type="text/css" href="css/customTheme.css" />
+
     </head>
 
     <body>
@@ -44,7 +47,13 @@
       </div>
 
       <!-- Controls area -->
-      <div class="container"></div>
+      <div class="container">
+
+        <button class="btn btn-primary" onclick="updateTime(10)">Update Time</button>
+        <button class="btn btn-primary" onclick="muteAudio()">Mute Audio</button>
+        <button class="btn btn-primary" onclick="togglePlay()">Toggle Play</button>
+
+      </div>
 
       <!-- Modal 1 -->
       <div class="modal" id="modal1">
@@ -78,7 +87,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 
-	  <script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
+    <script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
+    <script src="js/videojs-markers.min.js"></script>
 
       <!-- Custom JS -->
       <script src="js/interaction.js"></script>
